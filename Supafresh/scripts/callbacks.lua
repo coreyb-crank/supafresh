@@ -39,6 +39,7 @@ end
 
 local function flavour_selected(pot, flavour)
   print("flavour_selected - pot: " .. tostring(pot and pot.name) .. ", flavour: " .. tostring(flavour and flavour.name))
+  pot:empty()
   pot:flavour(flavour)
 end
 
