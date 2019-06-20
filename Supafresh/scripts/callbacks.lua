@@ -1,4 +1,7 @@
 
+local font_size_long = 80
+local font_size_short = 120
+
 local Pot = require 'Pot'
 local Flavour = require 'Flavour'
 
@@ -63,6 +66,16 @@ function cb_update_time_str(mapargs)
   gre.set_value(mapargs.control .. '.text', time_format(gre.get_value(mapargs.control .. '.time')))
 end
 
+-- May want to alter UI elements based on threshold times
+--- @param gre#context mapargs
+function cb_update_time_indicators(mapargs)
+  local time = gre.get_value(mapargs.control .. '.time')
+  if time >= 3600 then
+    gre.set_value(mapargs.control .. '.fontSize', font_size_long)
+  else
+    gre.set_value(mapargs.control .. '.fontSize', font_size_short)
+  end
+end
 
 --- @param gre#context mapargs
 function cb_tick(mapargs) 
