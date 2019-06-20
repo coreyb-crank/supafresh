@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eventdefinitions>
+  <event name="gre.animate.complete.button_glow" type="0x8">
+    <label>button_glow animation complete</label>
+    <description>The animation named button_glow has completed</description>
+  </event>
+  <event name="gre.animate.complete.button_glow_reversed" type="0x8">
+    <label>button_glow_reversed animation complete</label>
+    <description>The animation named button_glow_reversed has completed</description>
+  </event>
+  <event name="gre.animate.complete.empty_pot" type="0x8">
+    <label>empty_pot animation complete</label>
+    <description>The animation named empty_pot has completed</description>
+  </event>
+  <event name="gre.animate.stop.button_glow" type="0x8">
+    <label>button_glow animation stopped</label>
+    <description>The animation named button_glow has been stopped</description>
+  </event>
+  <event name="gre.animate.stop.button_glow_reversed" type="0x8">
+    <label>button_glow_reversed animation stopped</label>
+    <description>The animation named button_glow_reversed has been stopped</description>
+  </event>
+  <event name="gre.animate.stop.empty_pot" type="0x8">
+    <label>empty_pot animation stopped</label>
+    <description>The animation named empty_pot has been stopped</description>
+  </event>
+  <event name="time_updated" type="0x10"/>
+  <event name="time_updated_a" type="0x10"/>
+  <event name="time_updated_b" type="0x10"/>
+  <event name="timer.tiktok" type="0x8">
+    <description>The timer named timer.tiktok has fired</description>
+  </event>
+</eventdefinitions>
