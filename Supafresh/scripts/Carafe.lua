@@ -9,6 +9,9 @@ function Carafe:init(id, name)
   self:empty()
 end
 
+function Carafe:get_group()
+  return self._group
+end
 
 -- Sets group and updates UI
 function Carafe:group(group)
@@ -39,7 +42,7 @@ function Carafe:flavour(flavour)
     local fields = {}
     
     fields[self.flavour_image] = flavour.image
-    fields[self.flavour_image_alpha] = 255
+    --fields[self.flavour_image_alpha] = 255
   
     gre.set_data(fields)
   end
@@ -61,7 +64,6 @@ function Carafe:tick()
     self:time(self._time + 1)
   end
 end
-
 
 function Carafe:empty()
   self:flavour() -- no flava
