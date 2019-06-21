@@ -1,17 +1,17 @@
-local Pot = {}
+local Carafe = {}
 
 
-function Pot:init(id, name)
+function Carafe:init(id, name)
   self.id = id
   self.name = name
   
-  self:group('pot_' .. id) -- TODO: consider having the group passed in and reassignable
+  self:group('carafe_' .. id) -- TODO: consider having the group passed in and reassignable
   self:empty()
 end
 
 
 -- Sets group and updates UI
-function Pot:group(group)
+function Carafe:group(group)
   self._group = 'times_layer.' .. group
   self.group_name = self._group .. '.name'
   self.time_var = self._group .. '.time.time'
@@ -30,7 +30,7 @@ function Pot:group(group)
 end
 
 
-function Pot:flavour(flavour)
+function Carafe:flavour(flavour)
   self._flavour = flavour
   
   if flavour then
@@ -46,33 +46,33 @@ function Pot:flavour(flavour)
 end
 
 -- Do you have any coffee, Sir?
-function Pot:coffee()
+function Carafe:coffee()
   return self._flavour
 end
 
-function Pot:time(time)
+function Carafe:time(time)
   self._time = time
   gre.set_value(self.time_var, self._time)
 end
 
 
-function Pot:tick()
+function Carafe:tick()
   if self:coffee() then
     self:time(self._time + 1)
   end
 end
 
 
-function Pot:empty()
+function Carafe:empty()
   self:flavour() -- no flava
   self:time(0) -- and no time eitha
 end
 
 
-function Pot:new(id, name)
+function Carafe:new(id, name)
   local instance = {}
-  setmetatable(instance, {__index = Pot})
+  setmetatable(instance, {__index = Carafe})
   instance:init(id, name)
   return instance
 end
-return Pot
+return Carafe

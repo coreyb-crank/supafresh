@@ -2,15 +2,15 @@
 local font_size_long = 80
 local font_size_short = 120
 
-local Pot = require 'Pot'
+local Carafe = require 'Carafe'
 local Flavour = require 'Flavour'
 
-local pots = {}
+local carafes = {}
 local flavours = {}
 
 
-local function add_pot(id, name)
-  pots[id] = Pot:new(id, name)
+local function add_carafe(id, name)
+  carafes[id] = Carafe:new(id, name)
 end
 
 local at_flavour = 1
@@ -25,9 +25,9 @@ end
 
 --- @param gre#context mapargs
 function init_app(mapargs)
-  -- Pots
-  add_pot('a', 'Pot T1')
-  add_pot('b', 'Pot T2')
+  -- Carafes
+  add_carafe('a', 'Carafe T1')
+  add_carafe('b', 'Carafe T2')
   
   -- Flavas
   add_flavour('starbucks.verona', "Starbucks Verona", "starbucks_verona.jpg") --TODO: weird mix of whole/unwhole file name
@@ -37,16 +37,16 @@ function init_app(mapargs)
 end
 
 
-local function flavour_selected(pot, flavour)
-  print("flavour_selected - pot: " .. tostring(pot and pot.name) .. ", flavour: " .. tostring(flavour and flavour.name))
-  pot:empty()
-  pot:flavour(flavour)
+local function flavour_selected(carafe, flavour)
+  print("flavour_selected - carafe: " .. tostring(carafe and carafe.name) .. ", flavour: " .. tostring(flavour and flavour.name))
+  carafe:empty()
+  carafe:flavour(flavour)
 end
 
 --- @param gre#context mapargs
 function cb_flavour_selected(mapargs)
-  print("cb_flavour_selected - pot: " .. tostring(mapargs.pot) .. ", flavour: " .. tostring(mapargs.flavour))
-  flavour_selected(pots[mapargs.pot], flavours[mapargs.flavour])
+  print("cb_flavour_selected - carafe: " .. tostring(mapargs.carafe) .. ", flavour: " .. tostring(mapargs.flavour))
+  flavour_selected(carafes[mapargs.carafe], flavours[mapargs.flavour])
 end
 
 
@@ -81,7 +81,7 @@ end
 --- @param gre#context mapargs
 function cb_tick(mapargs) 
   -- TODO: really this is wrong, should get time of day and only tick if the second has changed
-  for k,v in pairs(pots) do
+  for k,v in pairs(carafes) do
     v:tick() 
   end
 end
@@ -89,5 +89,5 @@ end
 
 --- @param gre#context mapargs
 function cb_its_empty(mapargs) 
-  pots[mapargs.pot]:empty()
+  carafes[mapargs.carafe]:empty()
 end
