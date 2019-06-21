@@ -1,0 +1,20 @@
+#!/bin/sh
+# vim: set tabstop=8 shiftwidth=8 noexpandtab:
+
+# This script sets the environment variables used by the Storyboard Engine and
+# other Storyboard utility programs.  It is used only for the target hardware.
+# For development platforms, the appropriate Storyboard Engine "bin" directory
+# should be added to the command search path in the user's login script
+# (e.g., "~/.profile").
+
+export SB_ENGINE="/corey/linux-raspberry-armle-opengles_2.0-GST01-obj"
+
+export            PATH="$SB_ENGINE/bin:$PATH"
+export LD_LIBRARY_PATH="$SB_ENGINE/lib:$LD_LIBRARY_PATH"
+export      SB_PLUGINS="$SB_ENGINE/plugins"
+
+export      TSLIB_TSDEVICE="/dev/input/touchscreen0"
+export TSLIB_CONSOLEDEVICE="none"
+export     TSLIB_CALIBFILE="/etc/pointercal"
+export      TSLIB_CONFFILE="/etc/ts.conf"
+export      TSLIB_FBDEVICE="/dev/fb0"
