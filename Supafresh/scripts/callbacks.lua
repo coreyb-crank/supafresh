@@ -35,10 +35,11 @@ function init_app(mapargs)
   add_carafe('b', 'Carafe T2')
   
   -- Flavas
-  add_flavour('starbucks.verona', "Starbucks Verona", "starbucks_verona.jpg") --TODO: weird mix of whole/unwhole file name
-  add_flavour('starbucks.veranda', "Starbucks Veranda", "starbucks_veranda.jpg")
-  add_flavour('starbucks.pike_place', "Starbucks Pike Place", "starbucks_pike_place.jpg")
-  add_flavour('starbucks.komodo_dragon', "Starbucks Komodo Dragon", "starbucks_komodo_dragon.jpg")
+  add_flavour('starbucks.verona', "Starbucks Verona", "starbucks_verona")
+  add_flavour('starbucks.veranda', "Starbucks Veranda", "starbucks_veranda")
+  add_flavour('starbucks.pike_place', "Starbucks Pike Place", "starbucks_pike_place")
+  add_flavour('starbucks.komodo_dragon', "Starbucks Komodo Dragon", "starbucks_komodo_dragon")
+  add_flavour('bluebarn.finca_ayutepaque', "Bluebarn Finca Ayutepaque", "bluebarn_finca_ayutepaque")
 end
 
 local function animate_flavour_set(carafe)

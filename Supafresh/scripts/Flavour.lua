@@ -4,7 +4,7 @@ local Flavour = {}
 function Flavour:init(id, name, image)
   self.id = id
   self.name = name
-  self.image = 'images/coffee_' .. image
+  self.image = 'images/coffee_' .. image .. '.jpg' --TODO: png
 end
 
 
